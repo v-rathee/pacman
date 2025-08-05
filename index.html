@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Main Menu -->
+    <div class="main-menu" id="main-menu">
+        <h1 class="game-title">PAC-MAN</h1>
+        <div class="menu-content">
+            <div class="player-setup">
+                <label for="player-name">Enter Your Name:</label>
+                <input type="text" id="player-name" placeholder="Player" maxlength="15">
+            </div>
+            <div class="difficulty-setup">
+                <label>Select Difficulty:</label>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn active" data-difficulty="medium">MEDIUM</button>
+                    <button class="difficulty-btn" data-difficulty="hard">HARD</button>
+                </div>
+            </div>
+            <div class="menu-buttons">
+                <button id="start-game-btn">START GAME</button>
+                <button id="settings-btn">SETTINGS</button>
+                <button id="high-scores-btn">HIGH SCORES</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Menu -->
+    <div class="settings-menu hidden" id="settings-menu">
+        <h2>SETTINGS</h2>
+        <div class="settings-content">
+            <div class="setting-item">
+                <label>Difficulty:</label>
+                <div class="difficulty-buttons">
+                    <button class="difficulty-btn" data-difficulty="medium">MEDIUM</button>
+                    <button class="difficulty-btn" data-difficulty="hard">HARD</button>
+                </div>
+            </div>
+            <div class="setting-item">
+                <label>Player Name:</label>
+                <input type="text" id="settings-player-name" placeholder="Player" maxlength="15">
+            </div>
+            <div class="setting-item">
+                <label>Audio Settings:</label>
+                <div class="audio-controls">
+                    <div class="volume-control">
+                        <label>Master Volume:</label>
+                        <input type="range" id="master-volume" min="0" max="100" value="30">
+                    </div>
+                    <div class="volume-control">
+                        <label>Music Volume:</label>
+                        <input type="range" id="music-volume" min="0" max="100" value="20">
+                    </div>
+                    <div class="volume-control">
+                        <label>SFX Volume:</label>
+                        <input type="range" id="sfx-volume" min="0" max="100" value="40">
+                    </div>
+                    <button id="audio-toggle" class="audio-btn">🔊 AUDIO ON</button>
+                </div>
+            </div>
+            <div class="menu-buttons">
+                <button id="back-to-menu-btn">BACK TO MENU</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- High Scores Menu -->
+    <div class="high-scores-menu hidden" id="high-scores-menu">
+        <h2>HIGH SCORES</h2>
+        <div class="high-scores-content" id="high-scores-content">
+            <!-- High scores will be populated here -->
+        </div>
+        <div class="menu-buttons">
+            <button id="back-from-scores-btn">BACK TO MENU</button>
+        </div>
+    </div>
+
+    <!-- Game Container -->
+    <div class="game-container hidden" id="game-container">
+        <div class="game-header">
+            <div class="score-section">
+                <span>HIGH SCORE</span>
+                <div id="high-score">0</div>
+            </div>
+            <div class="player-info">
+                <span id="player-display">PLAYER</span>
+                <div class="difficulty-display" id="difficulty-display">MEDIUM</div>
+            </div>
+            <div class="score-section">
+                <span>SCORE</span>
+                <div id="current-score">0</div>
+            </div>
+        </div>
+        
+        <div class="game-board" id="game-board">
+            <!-- Game maze will be generated here -->
+        </div>
+        
+        <div class="game-info">
+            <div class="lives">
+                <span>Lives: </span>
+                <div id="lives-display">
+                    <span class="life">🟡</span>
+                    <span class="life">🟡</span>
+                    <span class="life">🟡</span>
+                </div>
+            </div>
+            <div class="game-status" id="game-status"></div>
+            <div class="game-controls">
+                <button id="pause-btn">PAUSE</button>
+                <button id="back-to-main-btn">MAIN MENU</button>
+            </div>
+        </div>
+        
+        <div class="controls">
+            <p>Use arrow keys to move Pac-Man</p>
+            <p>Press SPACE to start/restart the game</p>
+        </div>
+    </div>
+
+    <!-- Game Over Splash -->
+    <div class="splash-screen hidden" id="game-over-splash">
+        <div class="splash-content boom">
+            <h1>BOOM!</h1>
+            <h2>GAME OVER</h2>
+            <div class="final-score">
+                <p>Final Score: <span id="final-score">0</span></p>
+                <p>Player: <span id="final-player">Player</span></p>
+            </div>
+            <button id="restart-from-splash">PLAY AGAIN</button>
+            <button id="menu-from-splash">MAIN MENU</button>
+        </div>
+    </div>
+
+    <!-- Win Splash -->
+    <div class="splash-screen hidden" id="win-splash">
+        <div class="splash-content celebration">
+            <h1>🎉 WON! 🎉</h1>
+            <h2>CONGRATULATIONS!</h2>
+            <div class="final-score">
+                <p>Final Score: <span id="win-final-score">0</span></p>
+                <p>Player: <span id="win-final-player">Player</span></p>
+            </div>
+            <button id="next-level-btn">NEXT LEVEL</button>
+            <button id="win-menu-btn">MAIN MENU</button>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
