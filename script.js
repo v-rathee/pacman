@@ -53,7 +53,7 @@ class PacManGame {
         this.displayHighScore();
         
         // Game timing
-        this.baseSpeed = 200;
+        this.baseSpeed = 280;
         this.ghostSpeed = 300;
         this.speedIncrease = 0;
         this.gameLoop = null;
@@ -1172,3 +1172,4 @@ class PacManGame {
 document.addEventListener('DOMContentLoaded', () => {
     new PacManGame();
 });
+
